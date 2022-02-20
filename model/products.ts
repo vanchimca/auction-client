@@ -3,9 +3,9 @@ export class Products {
     'productName': string;
     'shortDesc':string;
 	'detailedDesc': string;
-	'Category': string;
+	'category': string;
     'startingPrice': number;
-    'bidEndDate': Date;
+    'bidEndDate': string;
     'sellerFirstName': string;
     'sellerLastName':string;
     'address':string;
@@ -13,4 +13,5 @@ export class Products {
     'state': string;
     'pin':number;
     'phone':number;
+    'mail': string;
 }

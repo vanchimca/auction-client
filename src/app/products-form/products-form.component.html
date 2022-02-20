@@ -10,16 +10,122 @@
             placeholder="Enter your product name"
             required #productName="ngModel">
         </div>
-        <div [hidden]="!productName.pristine" class="alert alert-danger">Product name is required</div>
         <div class="form-group">
-          <label for="shortDesc">Email</label>
+          <label for="shortDesc">Short Description</label>
           <input type="text" [(ngModel)]="products.shortDesc" 
             class="form-control" 
             id="shortDesc" 
             name="shortDesc" 
             placeholder="Enter short description">
+        </div>
+        <div class="form-group">
+          <label for="detailedDesc">Detailed Description</label>
+          <input type="text" [(ngModel)]="products.detailedDesc" 
+            class="form-control" 
+            id="detailedDesc" 
+            name="detailedDesc" 
+            placeholder="Enter detailed description">
             <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
         </div>
+        <div class="form-group">
+            <label for="Category">Category</label>
+            <input type="text" [(ngModel)]="products.category" 
+              class="form-control" 
+              id="category" 
+              name="category" 
+              placeholder="Enter Category">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="startingPrice">Starting Price</label>
+            <input type="text" [(ngModel)]="products.startingPrice" 
+              class="form-control" 
+              id="startingPrice" 
+              name="startingPrice" 
+              placeholder="Enter Starting Price">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="bidEndDate">Bid End Date</label>
+            <input type="text" [(ngModel)]="products.bidEndDate" 
+              class="form-control" 
+              id="bidEndDate" 
+              name="bidEndDate" 
+              placeholder="Enter Bid End Date">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="sellerFirstName">Seller First Name</label>
+            <input type="text" [(ngModel)]="products.sellerFirstName" 
+              class="form-control" 
+              id="sellerFirstName" 
+              name="sellerFirstName" 
+              placeholder="Enter Seller First Name">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="sellerLastName">Seller First Name</label>
+            <input type="text" [(ngModel)]="products.sellerLastName" 
+              class="form-control" 
+              id="sellerLastName" 
+              name="sellerLastName" 
+              placeholder="Enter Seller Last Name">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" [(ngModel)]="products.address" 
+              class="form-control" 
+              id="address" 
+              name="address" 
+              placeholder="Enter Address">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" [(ngModel)]="products.city" 
+              class="form-control" 
+              id="city" 
+              name="city" 
+              placeholder="Enter City">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" [(ngModel)]="products.state" 
+              class="form-control" 
+              id="state" 
+              name="state" 
+              placeholder="Enter State">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="pin">Pin</label>
+            <input type="text" [(ngModel)]="products.pin" 
+              class="form-control" 
+              id="pin" 
+              name="pin" 
+              placeholder="Enter Pin">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="phone">Pin</label>
+            <input type="text" [(ngModel)]="products.phone" 
+              class="form-control" 
+              id="phone" 
+              name="phone" 
+              placeholder="Enter Phone">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
+          <div class="form-group">
+            <label for="mail">Mail</label>
+            <input type="text" [(ngModel)]="products.mail" 
+              class="form-control" 
+              id="mail" 
+              name="mail" 
+              placeholder="Enter Mail">
+              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          </div>
         <button type="submit" [disabled]="!productsForm.form.valid" 
           class="btn btn-info">Submit</button>
       </form>

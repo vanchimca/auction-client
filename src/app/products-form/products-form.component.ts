@@ -10,7 +10,7 @@ import { Products } from '../../../model/products';
 
 export class ProductsFormComponent {
 
-  products: Products;
+  'products': Products;
 
   constructor(
     private route: ActivatedRoute, 
