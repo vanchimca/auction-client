@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsFormComponent } from './products-form/products-form.component';
 import { ProductsService } from '../../service/products-service.service';
+import { BidServiceService } from '../../service/bid-service.service';
+import { BidsListComponent } from './bids-list/bids-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsListComponent,
-    ProductsFormComponent
+    ProductsFormComponent,
+    BidsListComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { ProductsService } from '../../service/products-service.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService,BidServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
