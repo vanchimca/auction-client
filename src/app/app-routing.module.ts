@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';import { Routes, RouterModule } f
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsFormComponent } from './products-form/products-form.component';
 import { BidsListComponent } from './bids-list/bids-list.component';
+import { BidsFormComponent } from './bids-form/bids-form.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsListComponent },
   { path: 'addproducts', component: ProductsFormComponent },
-  { path: 'getBids/:productId', component: BidsListComponent }
+  { path: 'getBids/:productId', component: BidsListComponent },
+  { path: 'placeBid/:productId/:productName', component: BidsFormComponent }
 ];
 
 @NgModule({

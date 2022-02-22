@@ -38,7 +38,10 @@
             <td>{{ product.pin }}</td>
             <td>{{ product.phone }}</td>
             <td>{{ product.mail }}</td>            
-            <td><a [routerLink]="['/getBids', product._id ]" class="btn btn-info">Bids</a></td>
+            <td><a [routerLink]="['/getBids', product._id ]" class="btn btn-info">Get Bids</a><br/> <br/>
+                <a [routerLink]="['/placeBid', product._id, product.productName ]" class="btn btn-info">Place Bid</a><br/> <br/> 
+                <button class="btn btn-info" (click)="delete(product._id)">Delete</button></td>
+            
           </tr>
         </tbody>
       </table>

@@ -20,4 +20,9 @@ export class ProductsService {
     this.productsUrl = 'http://localhost:8090/e-auction/api/v1/seller/add-product';
     return this.http.post<Products>(this.productsUrl, product);
   }
+
+  public delete(productId: string) {
+    this.productsUrl = 'http://localhost:8090/e-auction/api/v1/seller/delete-product/';
+    return this.http.delete<Products>(this.productsUrl+productId);
+  }
 }

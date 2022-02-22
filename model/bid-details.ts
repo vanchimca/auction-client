@@ -1,6 +1,7 @@
 export class BidDetails {
     '_id' : string;	
 	'productId' : string;
+    'productName' : string;
 	'bidAmount' : number;
 	'buyerFirstName' : string;
 	'buyerLastName' : string;

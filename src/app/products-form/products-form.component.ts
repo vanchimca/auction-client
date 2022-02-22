@@ -12,6 +12,12 @@ export class ProductsFormComponent {
 
   'products': Products;
 
+  categories = [
+     {name: "Watch"},
+     {name: "Jewel"},
+     {name:"Car"}
+    
+ ];
   constructor(
     private route: ActivatedRoute, 
       private router: Router, 
@@ -20,10 +26,15 @@ export class ProductsFormComponent {
   }
 
   onSubmit() {
+    var e = (document.getElementById("category") as HTMLSelectElement).value;
+    console.log(e);
+    this.products.category = e;
+    console.log('id',e);
     this.productsService.save(this.products).subscribe(result => this.gotoProductsList());
   }
 
   gotoProductsList() {
+    console.log('go to product details')
     this.router.navigate(['/products']);
   }
 }
