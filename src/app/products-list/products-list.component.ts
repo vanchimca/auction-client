@@ -28,6 +28,8 @@ export class ProductsListComponent implements OnInit {
   }
 
   gotoProductsList() {
-    this.router.navigate(['/products']);
+    this.router.navigate(['../products']);
+    this.router.navigateByUrl('/products');
+    //this.router.navigate(['products'], { relativeTo: this.route });
   }
 }
