@@ -24,11 +24,15 @@ export class BidsFormComponent{
     this.bidDetails.productName=this.route.snapshot.params['productName'];  
   }
   onSubmit() {
-    this.bidService.save(this.bidDetails).subscribe(result => this.gotoProductsList());
+    this.bidService.save(this.bidDetails).subscribe();
+    this.gotoProductsList();
   }
 
   gotoProductsList() {
-    this.router.navigate(['/products']);
+    this.router.navigateByUrl('/products').then(() => {
+      window.location.reload();
+    });
+    
   }
 
 }

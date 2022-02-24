@@ -23,13 +23,6 @@ export class BidsListComponent implements OnInit {
     
     this.prodId=this._Activatedroute.snapshot.params['productId'];  
     console.log(this.prodId);
-   //this.prodId=this._Activatedroute.snapshot.paramMap.get("id");
-    
-      /*this.sub=this._Activatedroute.paramMap.subscribe(params => { 
-        console.log(params);
-         this.prodId = params.get('productId'); 
-    });*/
-
     this.bidService.findAll(this.prodId).subscribe(data => {
       this.bidDetails = data;
   });

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Products } from '../../../model/products';
 import { ProductsService } from '../../../service/products-service.service';
-
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -11,6 +13,8 @@ import { ProductsService } from '../../../service/products-service.service';
 export class ProductsListComponent implements OnInit {
 
  'products' : Products[];
+ 'response' : HttpResponse<Products[]>;
+ 'error' : HttpErrorResponse;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -24,12 +28,24 @@ export class ProductsListComponent implements OnInit {
   }
 
   public delete(productId:string) {
-    this.productService.delete(productId).subscribe(result => this.gotoProductsList());
+   this.productService.delete(productId).subscribe({
+    next: data => {
+        alert("deleted successfully");
+    },
+    error: error => {
+        alert("Product can not be delted");
+        console.error('There was an error!', error);
+    }
+});
+
+   this.gotoProductsList();
   }
 
   gotoProductsList() {
-    this.router.navigate(['../products']);
-    this.router.navigateByUrl('/products');
-    //this.router.navigate(['products'], { relativeTo: this.route });
+    
+    this.router.navigateByUrl('/products').then(() => {
+      window.location.reload();
+    });
+    
   }
 }

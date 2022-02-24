@@ -42,13 +42,14 @@ export class ProductsFormComponent {
     console.log('date',this.products.bidEndDate);
     console.log('date',this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'));
     this.products.bidEndDate = (this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'))+"";
-    this.productsService.save(this.products).subscribe(result => this.gotoProductsList());
+    this.productsService.save(this.products);
+    this.gotoProductsList();
   }
 
   gotoProductsList() {
-    console.log('go to product details')
-    //this.router.navigate(['../products']);
-    this.router.navigateByUrl('/products');
-    //this.router.navigate(['../products'], { relativeTo: this.route });
+    
+    this.router.navigateByUrl('/products').then(() => {
+      window.location.reload();
+    });
   }
 }
