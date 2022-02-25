@@ -5,6 +5,7 @@ import { ProductsService } from '../../../service/products-service.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -28,17 +29,14 @@ export class ProductsListComponent implements OnInit {
   }
 
   public delete(productId:string) {
-   this.productService.delete(productId).subscribe({
-    next: data => {
-        alert("deleted successfully");
-    },
-    error: error => {
-        alert("Product can not be delted");
-        console.error('There was an error!', error);
-    }
-});
-
-   this.gotoProductsList();
+   this.productService.delete(productId).subscribe(data=>{
+      alert(data);
+     if(data === "Deleted Successfully."){
+      this.gotoProductsList();
+     }
+     
+   });
+   
   }
 
   gotoProductsList() {

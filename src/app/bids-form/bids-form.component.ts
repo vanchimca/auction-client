@@ -24,8 +24,13 @@ export class BidsFormComponent{
     this.bidDetails.productName=this.route.snapshot.params['productName'];  
   }
   onSubmit() {
-    this.bidService.save(this.bidDetails).subscribe();
-    this.gotoProductsList();
+    this.bidService.save(this.bidDetails).subscribe(data => {
+      alert(data);
+      if(data === "Saved Successfully"){
+        this.gotoProductsList();
+      }
+    });
+    
   }
 
   gotoProductsList() {

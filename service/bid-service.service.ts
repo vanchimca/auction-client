@@ -20,6 +20,6 @@ export class BidServiceService {
 
   public save(bid: BidDetails) {
     this.bidsUrl = 'http://localhost:8091/e-auction/api/v1/buyer/place-bid';
-    return this.http.post<BidDetails>(this.bidsUrl, bid);
+    return this.http.post(this.bidsUrl, bid,  { responseType: 'text' });
   }
 }

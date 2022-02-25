@@ -42,8 +42,14 @@ export class ProductsFormComponent {
     console.log('date',this.products.bidEndDate);
     console.log('date',this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'));
     this.products.bidEndDate = (this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'))+"";
-    this.productsService.save(this.products);
-    this.gotoProductsList();
+    console.log(this.products.bidEndDate);
+    this.productsService.save(this.products).subscribe(data =>{
+      alert(data);
+      if(data === "Saved Successfully"){
+        this.gotoProductsList();
+      }
+    });
+    
   }
 
   gotoProductsList() {
