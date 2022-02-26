@@ -30,13 +30,9 @@ export class ProductsListComponent implements OnInit {
 
   public delete(productId:string) {
    this.productService.delete(productId).subscribe(data=>{
-      alert(data);
-     if(data === "Deleted Successfully."){
-      this.gotoProductsList();
-     }
-     
+     alert(data);
    });
-   
+   this.gotoProductsList();
   }
 
   gotoProductsList() {

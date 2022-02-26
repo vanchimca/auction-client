@@ -83,11 +83,11 @@
           </div>
           <div class="form-group">
             <label for="mail">Mail</label>
-            <input type="text" [(ngModel)]="bidDetails.mail" 
+            <input type="email" [(ngModel)]="bidDetails.mail" 
               class="form-control" 
               id="mail" 
               name="mail" 
-              placeholder="Enter Mail" required>
+              placeholder="Enter Mail" email = "true" required>
               <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
           </div>
         <button type="submit" [disabled]="!bidsForm.form.valid" 
