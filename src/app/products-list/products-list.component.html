@@ -1,49 +1,51 @@
 <div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-           <!-- <th scope="col">#</th> -->
-            <th scope="col">Name</th>
-            <th scope="col">short Description</th>
-            <th scope="col">Detailed Description</th>
-            <th scope="col">Category</th>
-            <th scope="col">Starting Price</th>
-            <th scope="col">Bid End Date</th>
-            <th scope="col">Seller First Name</th>
-            <th scope="col">Seller Last Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">State</th>
-            <th scope="col">Pin</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Mail</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products">
-           <!-- <td>{{ product._id }}</td> -->
-            <td>{{ product.productName }}</td>
-            <td>{{ product.shortDesc }}</td>
-            <td>{{ product.detailedDesc }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.startingPrice }}</td>
-            <td>{{ product.bidEndDate }}</td>
-            <td>{{ product.sellerFirstName }}</td>
-            <td>{{ product.sellerLastName }}</td>
-            <td>{{ product.address }}</td>
-            <td>{{ product.city }}</td>
-            <td>{{ product.state }}</td>
-            <td>{{ product.pin }}</td>
-            <td>{{ product.phone }}</td>
-            <td>{{ product.mail }}</td>            
-            <td><a [routerLink]="['/getBids', product._id ]" class="btn btn-info">Get Bids</a><br/> <br/>
-                <a [routerLink]="['/placeBid', product._id, product.productName ]" class="btn btn-info">Place Bid</a><br/> <br/> 
-                <button class="btn btn-info" (click)="delete(product._id)">Delete</button></td>
-            
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Name</th>
+          <th scope="col">short Description</th>
+          <th scope="col">Detailed Description</th>
+          <th scope="col">Category</th>
+          <th scope="col">Starting Price</th>
+          <th scope="col">Bid End Date</th>
+          <th scope="col">Seller First Name</th>
+          <th scope="col">Seller Last Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Pin</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Mail</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <!-- <td>{{ product._id }}</td> -->
+          <td>{{ product.productName }}</td>
+          <td>{{ product.shortDesc }}</td>
+          <td>{{ product.detailedDesc }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.startingPrice }}</td>
+          <td>{{ product.bidEndDate }}</td>
+          <td>{{ product.sellerFirstName }}</td>
+          <td>{{ product.sellerLastName }}</td>
+          <td>{{ product.address }}</td>
+          <td>{{ product.city }}</td>
+          <td>{{ product.state }}</td>
+          <td>{{ product.pin }}</td>
+          <td>{{ product.phone }}</td>
+          <td>{{ product.mail }}</td>
+          <td><a [routerLink]="['/getBids', product._id ]" class="btn btn-info">Get Bids</a><br /> <br />
+            <a [routerLink]="['/placeBid', product._id, product.productName ]" class="btn btn-info">Place Bid</a><br />
+            <br />
+            <button class="btn btn-info" (click)="delete(product._id)">Delete</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

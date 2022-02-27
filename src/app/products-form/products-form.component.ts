@@ -13,47 +13,47 @@ import { DatePipe } from '@angular/common';
 
 export class ProductsFormComponent {
 
-'products': Products;
-'datepipe': DatePipe = new DatePipe('en-US');
+  'products': Products;
+  'datepipe': DatePipe = new DatePipe('en-US');
 
   @ViewChild('default')
-    public 'datepickerObj': DatePickerComponent;
+  public 'datepickerObj': DatePickerComponent;
 
-    onFocus(args: FocusEventArgs): void {
-        this.datepickerObj.show();
-    }
+  onFocus(args: FocusEventArgs): void {
+    this.datepickerObj.show();
+  }
 
   categories = [
-     {name: "Watch"},
-     {name: "Jewel"},
-     {name:"Car"}
-    
- ];
+    { name: "Watch" },
+    { name: "Jewel" },
+    { name: "Car" }
+
+  ];
   constructor(
-    private route: ActivatedRoute, 
-      private router: Router, 
-        private productsService: ProductsService) {
+    private route: ActivatedRoute,
+    private router: Router,
+    private productsService: ProductsService) {
     this.products = new Products();
   }
 
   onSubmit() {
     var e = (document.getElementById("category") as HTMLSelectElement).value;
     this.products.category = e;
-    console.log('date',this.products.bidEndDate);
-    console.log('date',this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'));
-    this.products.bidEndDate = (this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'))+"";
+    console.log('date', this.products.bidEndDate);
+    console.log('date', this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy'));
+    this.products.bidEndDate = (this.datepipe.transform(this.products.bidEndDate, 'dd-MM-yyyy')) + "";
     console.log(this.products.bidEndDate);
-    this.productsService.save(this.products).subscribe(data =>{
+    this.productsService.save(this.products).subscribe(data => {
       alert(data);
-      if(data === "Saved Successfully"){
+      if (data === "Saved Successfully") {
         this.gotoProductsList();
       }
     });
-    
+
   }
 
   gotoProductsList() {
-    
+
     this.router.navigateByUrl('/products').then(() => {
       window.location.reload();
     });

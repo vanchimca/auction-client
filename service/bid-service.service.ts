@@ -14,12 +14,12 @@ export class BidServiceService {
     this.bidsUrl = 'http://localhost:8091/e-auction/api/v1/buyer/bids/';
   }
 
-  public findAll(productId : string): Observable<BidDetails[]> {
-    return this.http.get<BidDetails[]>(this.bidsUrl+productId);
+  public findAll(productId: string): Observable<BidDetails[]> {
+    return this.http.get<BidDetails[]>(this.bidsUrl + productId);
   }
 
   public save(bid: BidDetails) {
     this.bidsUrl = 'http://localhost:8091/e-auction/api/v1/buyer/place-bid';
-    return this.http.post(this.bidsUrl, bid,  { responseType: 'text' });
+    return this.http.post(this.bidsUrl, bid, { responseType: 'text' });
   }
 }

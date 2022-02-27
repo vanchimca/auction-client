@@ -8,9 +8,9 @@ describe('BidsFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BidsFormComponent ]
+      declarations: [BidsFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

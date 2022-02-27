@@ -13,11 +13,11 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 })
 export class ProductsListComponent implements OnInit {
 
- 'products' : Products[];
- 'response' : HttpResponse<Products[]>;
- 'error' : HttpErrorResponse;
+  'products': Products[];
+  'response': HttpResponse<Products[]>;
+  'error': HttpErrorResponse;
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
     private router: Router,
     private productService: ProductsService) {
   }
@@ -28,18 +28,18 @@ export class ProductsListComponent implements OnInit {
     });
   }
 
-  public delete(productId:string) {
-   this.productService.delete(productId).subscribe(data=>{
-     alert(data);
-   });
-   this.gotoProductsList();
+  public delete(productId: string) {
+    this.productService.delete(productId).subscribe(data => {
+      alert(data);
+    });
+    this.gotoProductsList();
   }
 
   gotoProductsList() {
-    
+
     this.router.navigateByUrl('/products').then(() => {
       window.location.reload();
     });
-    
+
   }
 }

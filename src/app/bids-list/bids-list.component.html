@@ -1,42 +1,42 @@
 <div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-           <!-- <th scope="col">#</th> -->
-            <!--<th scope="col">Name</th>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <!--<th scope="col">Name</th>
             <th scope="col">short Description</th>
             <th scope="col">Detailed Description</th>
             <th scope="col">Category</th> -->
-            <th scope="col">Bid Price</th>
-            <th scope="col">Buyer First Name</th>
-            <th scope="col">Buyer Last Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">State</th>
-            <th scope="col">Pin</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let bid of bidDetails">
-           <!-- <td>{{ product._id }}</td> 
+          <th scope="col">Bid Price</th>
+          <th scope="col">Buyer First Name</th>
+          <th scope="col">Buyer Last Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Pin</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bid of bidDetails">
+          <!-- <td>{{ product._id }}</td> 
             <td>{{ product.productName }}</td>
             <td>{{ product.shortDesc }}</td>
             <td>{{ product.detailedDesc }}</td>
             <td>{{ product.category }}</td> -->
-            <td>{{ bid.bidAmount}}</td>
-            <td>{{ bid.buyerFirstName }}</td>
-            <td>{{ bid.buyerLastName }}</td>
-            <td>{{ bid.address }}</td>
-            <td>{{ bid.city }}</td>
-            <td>{{ bid.state }}</td>
-            <td>{{ bid.pin }}</td>
-            <td>{{ bid.phone }}</td>
-            <td>{{ bid.mail }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <td>{{ bid.bidAmount}}</td>
+          <td>{{ bid.buyerFirstName }}</td>
+          <td>{{ bid.buyerLastName }}</td>
+          <td>{{ bid.address }}</td>
+          <td>{{ bid.city }}</td>
+          <td>{{ bid.state }}</td>
+          <td>{{ bid.pin }}</td>
+          <td>{{ bid.phone }}</td>
+          <td>{{ bid.mail }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

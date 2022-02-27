@@ -18,11 +18,11 @@ export class ProductsService {
 
   public save(product: Products) {
     this.productsUrl = 'http://localhost:8090/e-auction/api/v1/seller/add-product';
-    return this.http.post(this.productsUrl, product,  { responseType: 'text' });
+    return this.http.post(this.productsUrl, product, { responseType: 'text' });
   }
 
   public delete(productId: string) {
     this.productsUrl = 'http://localhost:8090/e-auction/api/v1/seller/delete-product/';
-    return this.http.delete(this.productsUrl+productId,  { responseType: 'text' });
+    return this.http.delete(this.productsUrl + productId, { responseType: 'text' });
   }
 }
