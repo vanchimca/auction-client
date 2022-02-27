@@ -5,7 +5,6 @@ import { Products } from '../../../model/products';
 import { DatePickerComponent, FocusEventArgs } from '@syncfusion/ej2-angular-calendars';
 import { ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
 @Component({
   selector: 'app-products-form',
   templateUrl: './products-form.component.html',

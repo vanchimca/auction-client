@@ -4,7 +4,7 @@
  <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet">
 <div class="card my-5">
     <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #productsForm="ngForm">
+      <form (ngSubmit)="onSubmit()" #productsForm="ngForm" novalidate>
         <div class="form-group">
           <label for="productName">Product Name</label>
           <input type="text" [(ngModel)]="products.productName" 
@@ -12,7 +12,16 @@
             id="productName" 
             name="productName" 
             placeholder="Enter your product name"
-            required #productName="ngModel">
+            required minlength="5" maxlength="30" #productName="ngModel" >
+            <div *ngIf="productName.invalid && (productName.dirty || productName.touched)"
+    class="alert">
+    <div *ngIf="productName.errors?.['required']">
+      Product Name is required.
+    </div>
+    <div *ngIf="productName.errors?.['minlength'] || productName.errors?.['maxlength']">
+      Product Name must be at least 5 and maximum 30 characters long.
+    </div>
+    </div>
         </div>
         <div class="form-group">
           <label for="Category">Category</label>
@@ -22,11 +31,17 @@
             name="category" 
             placeholder="Enter Category"> -->
             <select  class="form-control" 
-            [(ngModel)]="products.category" id="category" name="category" placeholder="Enter Category" required> 
+            [(ngModel)]="products.category" id="category" name="category" placeholder="Choose Category" 
+            #category = "ngModel" required> 
               <option [ngValue]="null" class="dropdown-item" selected disabled>Select Category</option>
               <option *ngFor="let c of categories" class="dropdown-item">{{c.name}}</option>
           </select>  
-            <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+          <div *ngIf="category.touched"
+          class="alert">
+          <div *ngIf="category.errors?.['required']">
+            Choose Category
+          </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="shortDesc">Short Description</label>
@@ -42,17 +57,27 @@
             class="form-control" 
             id="detailedDesc" 
             name="detailedDesc" 
-            placeholder="Enter detailed description" required>
-            <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+            placeholder="Enter detailed description" required #detailedDesc = "ngModel">
+            <div *ngIf="detailedDesc.invalid && (detailedDesc.dirty || detailedDesc.touched)"
+    class="alert">
+    <div *ngIf="detailedDesc.errors?.['required']">
+      Detailed Description is required
+    </div>
+    </div>
         </div>
           <div class="form-group">
             <label for="startingPrice">Starting Price</label>
-            <input type="text" [(ngModel)]="products.startingPrice" 
+            <input type="number" [(ngModel)]="products.startingPrice" 
               class="form-control" 
               id="startingPrice" 
               name="startingPrice" 
-              placeholder="Enter Starting Price" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Starting Price" required #startingPrice = "ngModel">
+              <div *ngIf="startingPrice.invalid && (startingPrice.dirty || startingPrice.touched)"
+    class="alert">
+    <div *ngIf="startingPrice.errors?.['required']">
+      Starting Price is required
+    </div>
+    </div>
           </div>
           <div class="form-group">
             <label for="bidEndDate">Bid End Date</label>
@@ -86,8 +111,17 @@
               class="form-control" 
               id="sellerFirstName" 
               name="sellerFirstName" 
-              placeholder="Enter Seller First Name" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Seller First Name" required minlength="5" maxlength="30"
+              #sellerFirstName = "ngModel">
+              <div *ngIf="sellerFirstName.invalid && (sellerFirstName.dirty || sellerFirstName.touched)"
+    class="alert">
+    <div *ngIf="sellerFirstName.errors?.['required']">
+      Seller First Name is required.
+    </div>
+    <div *ngIf="sellerFirstName.errors?.['minlength'] || sellerFirstName.errors?.['maxlength']">
+      Seller First Name must be at least 5 and maximum 30 characters long.
+    </div>
+    </div>
           </div>
           <div class="form-group">
             <label for="sellerLastName">Seller Last Name</label>
@@ -95,8 +129,17 @@
               class="form-control" 
               id="sellerLastName" 
               name="sellerLastName" 
-              placeholder="Enter Seller Last Name">
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Seller Last Name" required minlength="3" maxlength="25" 
+              #sellerLastName = "ngModel">
+              <div *ngIf="sellerLastName.invalid && (sellerLastName.dirty || sellerLastName.touched)"
+    class="alert">
+    <div *ngIf="sellerLastName.errors?.['required']">
+      Seller Last Name is required.
+    </div>
+    <div *ngIf="productName.errors?.['minlength'] || productName.errors?.['maxlength']">
+      Seller Last Name must be at least 3 and maximum 25 characters long.
+    </div>
+    </div>
           </div>
           <div class="form-group">
             <label for="address">Address</label>
@@ -104,8 +147,13 @@
               class="form-control" 
               id="address" 
               name="address" 
-              placeholder="Enter Address" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Address" required #address = "ngModel">
+              <div *ngIf="address.invalid && (address.dirty || address.touched)"
+              class="alert">
+              <div *ngIf="address.errors?.['required']">
+                Address is required
+              </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="city">City</label>
@@ -113,8 +161,13 @@
               class="form-control" 
               id="city" 
               name="city" 
-              placeholder="Enter City">
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter City" required #city="ngModel">
+              <div *ngIf="city.invalid && (city.dirty || city.touched)"
+              class="alert">
+              <div *ngIf="city.errors?.['required']">
+                City is required
+              </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="state">State</label>
@@ -122,8 +175,13 @@
               class="form-control" 
               id="state" 
               name="state" 
-              placeholder="Enter State" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter State" required #state="ngModel">
+              <div *ngIf="state.invalid && (state.dirty || state.touched)"
+              class="alert">
+              <div *ngIf="state.errors?.['required']">
+                State is required
+              </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="pin">Pin</label>
@@ -131,8 +189,13 @@
               class="form-control" 
               id="pin" 
               name="pin" 
-              placeholder="Enter Pin" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Pin" required #pin="ngModel">
+              <div *ngIf="pin.invalid && (pin.dirty || pin.touched)"
+              class="alert">
+              <div *ngIf="pin.errors?.['required']">
+                pin is required
+              </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
@@ -140,8 +203,16 @@
               class="form-control" 
               id="phone" 
               name="phone" 
-              placeholder="Enter Phone" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
+              placeholder="Enter Phone" required pattern="^((\\+91-?)|0)?[0-9]{10}$" #phone="ngModel" >
+             <div *ngIf="phone.invalid && (phone.touched || phone.dirty) "
+              class="alert">   
+              <div *ngIf="phone.errors?.['required']">
+                Phone is required
+              </div>         
+          <div *ngIf="phone.errors?.pattern">
+             Enter valid phone number
+          </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="mail">Mail</label>
@@ -149,9 +220,14 @@
               class="form-control" 
               id="mail" 
               name="mail" 
-              placeholder="Enter Mail" email = "true" required>
-              <!--<div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div> -->
-          </div>
+              placeholder="Enter Mail" email = "true" required pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" #mail="ngModel">
+          <div *ngIf="mail.invalid && (mail.touched || mail.dirty) "
+                class="alert">
+    <div *ngIf="mail.errors?.pattern">
+      Enter valid email
+    </div>
+          </div> 
+          </div><br><br>
         <button type="submit" [disabled]="!productsForm.form.valid" 
           class="btn btn-info">Submit</button>
       </form>
