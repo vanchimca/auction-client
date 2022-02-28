@@ -17,6 +17,7 @@
           <th scope="col">Pin</th>
           <th scope="col">Phone</th>
           <th scope="col">Mail</th>
+          <th scope="col">Update</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,9 @@
             <td>{{ product.shortDesc }}</td>
             <td>{{ product.detailedDesc }}</td>
             <td>{{ product.category }}</td> -->
-          <td>{{ bid.bidAmount}}</td>
+          <td>
+            <span contenteditable="true"  (blur)="updateList($event)">{{ bid.bidAmount}}</span>
+          </td>
           <td>{{ bid.buyerFirstName }}</td>
           <td>{{ bid.buyerLastName }}</td>
           <td>{{ bid.address }}</td>
@@ -35,6 +38,7 @@
           <td>{{ bid.pin }}</td>
           <td>{{ bid.phone }}</td>
           <td>{{ bid.mail }}</td>
+          <td><button class="btn btn-info" (click)="updateBid(bid._id,bid.mail)">Update Bid</button></td>
         </tr>
       </tbody>
     </table>

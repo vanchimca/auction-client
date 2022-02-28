@@ -14,6 +14,7 @@ export class BidsListComponent implements OnInit {
   'bidDetails': BidDetails[];
   'prodId': string;
   'sub': Subscription;
+  'updatePrice' : number;
 
   constructor(private _Activatedroute: ActivatedRoute,
     private _router: Router, private bidService: BidServiceService) {
@@ -27,4 +28,15 @@ export class BidsListComponent implements OnInit {
       this.bidDetails = data;
     });
   }
+  
+   
+updateList(event: any) {
+  this.updatePrice = event.target.textContent;
+}
+
+updateBid(bidId: string, mail:string){
+    this.bidService.update(bidId,mail,this.updatePrice).subscribe(data => {
+      alert(data);
+    });
+}
 }
