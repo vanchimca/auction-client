@@ -22,8 +22,8 @@ export class BidServiceService {
     this.bidsUrl = 'http://localhost:8091/e-auction/api/v1/buyer/place-bid';
     return this.http.post(this.bidsUrl, bid, { responseType: 'text' });
   }
-  public update(bidId: String, mail: string, bidAmount: number) {
+  public update(bidId: String, mail: string, bidAmount: number, productId:string) {
     this.bidsUrl = 'http://localhost:8091/e-auction/api/v1/buyer/updateBid/';
-    return this.http.get(this.bidsUrl+bidId+"/"+mail+"/"+bidAmount+"/", { responseType: 'text' });
+    return this.http.get(this.bidsUrl+bidId+"/"+mail+"/"+bidAmount+"/"+productId, { responseType: 'text' });
   }
 }

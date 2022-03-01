@@ -35,8 +35,17 @@ updateList(event: any) {
 }
 
 updateBid(bidId: string, mail:string){
-    this.bidService.update(bidId,mail,this.updatePrice).subscribe(data => {
+    this.bidService.update(bidId,mail,this.updatePrice,this.prodId).subscribe(data => {
       alert(data);
+      if(data == "Bid amount updated successfully"){
+        this.gotoProductsList();
+      }
     });
+}
+gotoProductsList() {
+
+  this._router.navigateByUrl('/products').then(() => {
+    window.location.reload();
+  });
 }
 }
