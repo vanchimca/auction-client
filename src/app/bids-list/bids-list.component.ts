@@ -15,6 +15,7 @@ export class BidsListComponent implements OnInit {
   'prodId': string;
   'sub': Subscription;
   'updatePrice' : number;
+  'currentPrice' : number;
 
   constructor(private _Activatedroute: ActivatedRoute,
     private _router: Router, private bidService: BidServiceService) {
@@ -32,15 +33,21 @@ export class BidsListComponent implements OnInit {
    
 updateList(event: any) {
   this.updatePrice = event.target.textContent;
+  
 }
 
-updateBid(bidId: string, mail:string){
+updateBid(bidId: string, mail:string, currentPrice:number){
+  if(currentPrice == currentPrice){
+    alert("Update the bid amount in the table");
+  }else{
     this.bidService.update(bidId,mail,this.updatePrice,this.prodId).subscribe(data => {
       alert(data);
       if(data == "Bid amount updated successfully"){
         this.gotoProductsList();
       }
     });
+  }
+  
 }
 gotoProductsList() {
 
