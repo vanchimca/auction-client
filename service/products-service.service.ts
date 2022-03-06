@@ -9,7 +9,7 @@ export class ProductsService {
   private productsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.productsUrl = 'http://sellerservice.us-east-1.elasticbeanstalk.com/e-auction/api/v1/seller/show-products';
+    this.productsUrl = 'https://h6vo25tayi.execute-api.us-east-1.amazonaws.com/Dev/seller';
   }
 
   public findAll(): Observable<Products[]> {
@@ -17,12 +17,12 @@ export class ProductsService {
   }
 
   public save(product: Products) {
-    this.productsUrl = 'http://sellerservice.us-east-1.elasticbeanstalk.com/e-auction/api/v1/seller/add-product';
+    this.productsUrl = 'https://h6vo25tayi.execute-api.us-east-1.amazonaws.com/Dev/seller';
     return this.http.post(this.productsUrl, product, { responseType: 'text' });
   }
 
   public delete(productId: string) {
-    this.productsUrl = 'http://sellerservice.us-east-1.elasticbeanstalk.com/e-auction/api/v1/seller/delete-product/';
+    this.productsUrl = 'https://h6vo25tayi.execute-api.us-east-1.amazonaws.com/Dev/seller/';
     return this.http.delete(this.productsUrl + productId, { responseType: 'text' });
   }
 }

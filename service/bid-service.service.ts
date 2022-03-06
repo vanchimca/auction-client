@@ -11,7 +11,7 @@ export class BidServiceService {
   private bidsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.bidsUrl = 'http://buyerservice.us-east-1.elasticbeanstalk.com/e-auction/api/v1/buyer/bids/';
+    this.bidsUrl = 'https://lymp38xjfi.execute-api.us-east-1.amazonaws.com/Dev/';
   }
 
   public findAll(productId: string): Observable<BidDetails[]> {
@@ -19,7 +19,7 @@ export class BidServiceService {
   }
 
   public save(bid: BidDetails) {
-    this.bidsUrl = 'http://buyerservice.us-east-1.elasticbeanstalk.com/e-auction/api/v1/buyer/place-bid';
+    this.bidsUrl = 'https://lymp38xjfi.execute-api.us-east-1.amazonaws.com/Dev/buyer';
     return this.http.post(this.bidsUrl, bid, { responseType: 'text' });
   }
   public update(bidId: String, mail: string, bidAmount: number, productId:string) {
