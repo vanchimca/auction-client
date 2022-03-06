@@ -37,7 +37,7 @@ updateList(event: any) {
 }
 
 updateBid(bidId: string, mail:string, currentPrice:number){
-  if(this.updatePrice == currentPrice || this.updatePrice == undefined){
+  if(this.updatePrice == undefined || this.updatePrice == currentPrice){
     alert("Update the bid amount in the table");
   }else{
     this.bidService.update(bidId,mail,this.updatePrice,this.prodId).subscribe(data => {
