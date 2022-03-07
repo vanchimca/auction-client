@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   public delete(productId: string) {
-    this.productsUrl = 'https://h6vo25tayi.execute-api.us-east-1.amazonaws.com/Dev/seller/';
+    this.productsUrl = ' https://h6vo25tayi.execute-api.us-east-1.amazonaws.com/Dev/';
     return this.http.delete(this.productsUrl + productId, { responseType: 'text' });
   }
 }
